@@ -1,0 +1,27 @@
+<odoo>
+    <record id="crm_lead_view_kanban_badge" model="ir.ui.view">
+        <field name="name">crm.lead.kanban.badge</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_kanban"/>
+        <field name="arch" type="xml">
+
+            <!-- เพิ่ม badge ด้านบนชื่อ -->
+            <xpath expr="//div[contains(@class, 'o_kanban_record_headings')]" position="inside">
+
+                <t t-if="record.probability.raw_value &gt;= 80">
+                    <span class="badge bg-success">Hot</span>
+                </t>
+
+                <t t-if="record.probability.raw_value &gt;= 40 and record.probability.raw_value &lt; 80">
+                    <span class="badge bg-warning text-dark">Warm</span>
+                </t>
+
+                <t t-if="record.probability.raw_value &lt; 40">
+                    <span class="badge bg-danger">Cold</span>
+                </t>
+
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

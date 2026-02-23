@@ -1,0 +1,17 @@
+<odoo>
+    <record id="crm.stage_lead1" model="crm.stage">
+        <field name="name">ใหม่</field>
+    </record>
+
+    <record id="crm.stage_lead2" model="crm.stage">
+        <field name="name">ผ่านการคัดกรอง</field>
+    </record>
+
+    <record id="crm.stage_lead3" model="crm.stage">
+        <field name="name">ใบเสนอราคา</field>
+    </record>
+
+    <record id="crm.stage_lead4" model="crm.stage">
+        <field name="name">ปิดการขาย</field>
+    </record>
+</odoo>

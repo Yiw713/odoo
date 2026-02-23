@@ -1,0 +1,18 @@
+<!-- <odoo>
+    <record id="crm_custom_form_view" model="ir.ui.view">
+        <field name="name">crm.lead.custom.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+
+            <!-- เพิ่ม field ด้านบน -->
+            <xpath expr="//sheet/group" position="inside">
+                <group>
+                    <field name="expected_revenue"/>
+                    <field name="probability"/>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+</odoo> -->

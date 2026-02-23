@@ -1,0 +1,7 @@
+<!-- <odoo>
+    <menuitem 
+        id="crm_custom_root_menu"
+        name="CRM Custom"
+        sequence="5"
+        parent="crm.crm_menu_root"/>
+</odoo> -->

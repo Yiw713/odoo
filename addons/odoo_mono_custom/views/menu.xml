@@ -1,0 +1,15 @@
+<odoo>
+    <menuitem id="mono_root_menu"
+              name="Mono System"
+              sequence="50"/>
+
+    <menuitem id="mono_api_menu"
+              name="API Data"
+              parent="mono_root_menu"
+              action="mono_api_action"/>
+
+    <menuitem id="mono_dashboard_menu"
+              name="Dashboard"
+              parent="mono_root_menu"
+              action="mono_dashboard_action"/>
+</odoo>

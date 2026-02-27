@@ -1,0 +1,21 @@
+<odoo>
+
+    <record id="mono_dashboard_pivot" model="ir.ui.view">
+        <field name="name">mono.dashboard.pivot</field>
+        <field name="model">mono.dashboard</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="vehicle_id" type="row"/>
+                <field name="total_records" type="measure"/>
+                <field name="avg_speed" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="mono_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">mono.dashboard</field>
+        <field name="view_mode">pivot</field>
+    </record>
+
+</odoo>

@@ -10,6 +10,7 @@
     'views/crm_lead_view.xml',
     'views/crm_followup_views.xml',
     'views/crm_followup_dashboard_views.xml',
+    'views/crm_finance_dashboard_views.xml',
     # 'views/crm_custom_menu.xml',
     # 'views/crm_custom_action.xml',
     # 'views/crm_custom_kanban.xml',

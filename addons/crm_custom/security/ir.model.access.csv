@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_crm_custom_log,crm.custom.log,model_crm_custom_log,base.group_user,1,1,1,1
 access_crm_followup,crm.followup,model_crm_followup,base.group_user,1,1,1,1
 access_crm_followup_dashboard,crm.followup.dashboard,model_crm_followup_dashboard,base.group_user,1,0,0,0
+access_crm_finance_dashboard,crm.finance.dashboard,model_crm_finance_dashboard,base.group_user,1,0,0,0

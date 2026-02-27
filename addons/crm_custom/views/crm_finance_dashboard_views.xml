@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Pivot View -->
+    <record id="crm_finance_dashboard_pivot" model="ir.ui.view">
+        <field name="name">crm.finance.dashboard.pivot</field>
+        <field name="model">crm.finance.dashboard</field>
+        <field name="arch" type="xml">
+            <pivot string="Finance Dashboard">
+                <field name="stage_id" type="row"/>
+                <field name="expected_revenue" type="measure"/>
+                <field name="total_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="crm_finance_dashboard_graph" model="ir.ui.view">
+        <field name="name">crm.finance.dashboard.graph</field>
+        <field name="model">crm.finance.dashboard</field>
+        <field name="arch" type="xml">
+            <graph type="bar" string="Revenue by Stage">
+                <field name="stage_id"/>
+                <field name="expected_revenue" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="crm_finance_dashboard_action" model="ir.actions.act_window">
+        <field name="name">Finance Dashboard</field>
+        <field name="res_model">crm.finance.dashboard</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+    <!-- Root Menu ใหม่ (ไม่อยู่ใต้ CRM) -->
+    <menuitem id="crm_finance_root_menu"
+              name="CRM Finance"
+              sequence="100"/>
+
+    <menuitem id="crm_finance_dashboard_menu"
+              name="Finance Dashboard"
+              parent="crm_finance_root_menu"
+              action="crm_finance_dashboard_action"
+              sequence="10"/>
+
+</odoo>

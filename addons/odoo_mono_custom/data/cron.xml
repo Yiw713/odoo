@@ -1,0 +1,20 @@
+<odoo>
+
+    <!-- Server Action -->
+    <record id="mono_api_server_action" model="ir.actions.server">
+        <field name="name">Mono API Fetch</field>
+        <field name="model_id" ref="model_mono_api_data"/>
+        <field name="state">code</field>
+        <field name="code">model.fetch_api_data()</field>
+    </record>
+
+    <!-- Cron Job -->
+    <record id="mono_api_cron" model="ir.cron">
+        <field name="name">Mono API Auto Fetch</field>
+        <field name="interval_number">5</field>
+        <field name="interval_type">minutes</field>
+        <field name="active">True</field>
+        <field name="ir_actions_server_id" ref="mono_api_server_action"/>
+    </record>
+
+</odoo>

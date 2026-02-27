@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="gps_realtime_tree" model="ir.ui.view">
+        <field name="name">gps.realtime.tree</field>
+        <field name="model">gps.realtime</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="vehicle_id"/>
+                <field name="vehicle_name"/>
+                <field name="province"/>
+                <field name="timestamp"/>
+                <field name="speed"/>
+                <field name="status"/>
+                <field name="engine_status"/>
+                <field name="location_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="gps_realtime_action" model="ir.actions.act_window">
+        <field name="name">GPS Realtime</field>
+        <field name="res_model">gps.realtime</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="gps_root_menu"
+              name="GPS Monitor"
+              sequence="20"/>
+
+    <menuitem id="gps_realtime_menu"
+              name="Realtime Data"
+              parent="gps_root_menu"
+              action="gps_realtime_action"
+              sequence="1"/>
+
+</odoo>

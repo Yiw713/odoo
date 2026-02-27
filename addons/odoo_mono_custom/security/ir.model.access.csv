@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_mono_api_data,mono.api.data,model_mono_api_data,base.group_user,1,1,1,1
+access_gps_realtime,gps.realtime,model_gps_realtime,base.group_user,1,1,1,1
+access_mono_dashboard,mono.dashboard,model_mono_dashboard,base.group_user,1,0,0,0

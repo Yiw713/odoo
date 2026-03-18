@@ -1,0 +1,22 @@
+<odoo>
+
+    <!-- Action -->
+    <record id="mono_request_action" model="ir.actions.act_window">
+        <field name="name">Mono Requests</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <!-- Root Menu -->
+    <menuitem id="mono_request_root"
+              name="Mono Request"
+              sequence="10"/>
+
+    <!-- Sub Menu -->
+    <menuitem id="mono_request_menu"
+              name="Requests"
+              parent="mono_request_root"
+              action="mono_request_action"
+              sequence="1"/>
+
+</odoo>

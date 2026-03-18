@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_company_calendar_root"
+        name="Company Calendar"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_company_calendar_events"
+        name="Calendar"
+        parent="menu_company_calendar_root"
+        action="action_company_event"/>
+
+    <menuitem
+        id="menu_company_calendar_types"
+        name="Event Types"
+        parent="menu_company_calendar_root"
+        action="action_event_type"/>
+
+</odoo>

@@ -1,9 +1,34 @@
 from odoo import models, fields, api
 import requests
 
-
 class CrmLead(models.Model):
     _inherit = 'crm.lead'
+
+    lead_source = fields.Char(string="Lead Source")
+
+    product_type = fields.Selection([
+        ('gps', 'GPS'),
+        ('mdvr', 'MDVR'),
+        ('gps_mdvr', 'GPS+MDVR'),
+        ('rack_tracking', 'Rack tracking'),
+        ('forklift_solution', 'Forklift Solution'),
+        ('dlt', 'DLT'),
+        ('iot', 'IoT'),
+        ('marine_solution', 'Marine Solution')
+    ], string="Product Type")
+
+    lead_note = fields.Text(string="Note")
+
+    tax_id = fields.Char(string="Tax ID", size=13)
+
+    priority = fields.Selection([
+        ('0', '0'),
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    ], string="Priority", default='0')
 
     x_customer_budget = fields.Float(string="Customer Budget")
     x_project_deadline = fields.Date(string="Project Deadline")

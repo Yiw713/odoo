@@ -1,40 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
     <record id="crm_lead_form_inherit_custom" model="ir.ui.view">
         <field name="name">crm.lead.form.inherit.custom</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form"/>
         <field name="arch" type="xml">
 
-            <!-- เพิ่ม Tab ใหม่ -->
-            <xpath expr="//notebook" position="inside">
-                <page string="Info">
-                    <group>
-                        <field name="x_customer_budget"/>
-                        <field name="x_project_deadline"/>
+            <xpath expr="//sheet/group[1]" position="after">
+                <group name="custom_crm_info">
+                    <group string="GPS &amp; Lead Info">
+                        <field name="lead_source"/>
+                        <field name="product_type"/>
                     </group>
-                </page>
+                    <group string="Additional Notes">
+                        <field name="lead_note"/>
+                    </group>
+                </group>
             </xpath>
 
         </field>
     </record>
 
-    <record id="crm_lead_form_inherit_custom_btn" model="ir.ui.view">
-        <field name="name">crm.lead.form.inherit.smart.button</field>
-        <field name="model">crm.lead</field>
-        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
-        <field name="arch" type="xml">
+    <record id="crm_lead_list_inherit_custom" model="ir.ui.view">
+            <field name="name">crm.lead.list.inherit.custom</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="lead_source" optional="show"/>
+                    <field name="product_type" optional="show"/>
+                </xpath>
 
-            <xpath expr="//div[@class='oe_button_box']" position="inside">
-                <button type="object"
-                        name="action_view_logs"
-                        class="oe_stat_button"
-                        icon="fa-list">
-                    <field name="x_log_count" widget="statinfo"/>
-                </button>
-            </xpath>
+            </field>
+        </record>
 
-        </field>
-    </record>
+        <record id="crm_lead_kanban_inherit_custom" model="ir.ui.view">
+            <field name="name">crm.lead.kanban.inherit.custom</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//templates" position="before">
+                    <field name="lead_source"/>
+                    <field name="product_type"/>
+                </xpath>
+                
+                <xpath expr="//t[@t-name='card']//field[@name='tag_ids']" position="after">
+                    <div invisible="not lead_source and not product_type" class="text-muted mt-1" style="font-size: 0.9em;">
+                        <span invisible="not lead_source">
+                            <i class="fa fa-bullseye me-1" title="Lead Source" aria-label="Lead Source"/> 
+                            <field name="lead_source"/>
+                        </span>
+                        <span invisible="not product_type" class="ms-2">
+                            <i class="fa fa-map-marker me-1" title="GPS Type" aria-label="Product Type"/> 
+                            <field name="product_type"/>
+                        </span>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="quick_create_opportunity_form_inherit_custom" model="ir.ui.view">
+            <field name="name">crm.lead.form.quick_create.inherit.custom</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//group[hasclass('crm_quick_create_opportunity_form_group')]" position="inside">
+                    
+                    <div class="d-flex align-items-center" colspan="2">
+                        <i class="fa fa-bullseye fa-fw" title="Lead Source"/>
+                        <field name="lead_source" placeholder="Lead Source (e.g. Facebook, Website)" nolabel="1" class="o_field_highlight w-100 mb-0 ms-2"/>
+                    </div>
+                    
+                    <div class="d-flex align-items-center" colspan="2">
+                        <i class="fa fa-tags fa-fw" title="Product Type"/>
+                        <field name="product_type" placeholder="Select Product Type" nolabel="1" class="o_field_highlight w-100 mb-0 ms-2"/>
+                    </div>
+
+                    <div class="d-flex align-items-center" colspan="2">
+                        <i class="fa fa-sticky-note fa-fw" title="Note"/>
+                        <field name="lead_note" placeholder="Additional Notes..." nolabel="1" class="o_field_highlight w-100 mb-0 ms-2"/>
+                    </div>
+
+                </xpath>
+
+            </field>
+        </record>
+        
+
+        <record id="crm_lead_form_inherit_tax_id" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit.tax.id</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//page[@name='lead']//field[@name='function']" position="before">
+                    <field name="tax_id" placeholder="เลขประจำตัวผู้เสียภาษี 13 หลัก..."/>
+                </xpath>
+
+            </field>
+        </record>
+
 </odoo>
-

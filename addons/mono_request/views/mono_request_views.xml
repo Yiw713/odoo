@@ -1,0 +1,32 @@
+<odoo>
+
+    <record id="mono_request_form" model="ir.ui.view">
+        <field name="name">mono.request.form</field>
+        <field name="model">project.task</field>
+
+        <!-- inherit project task form -->
+        <field name="inherit_id" ref="project.view_task_form2"/>
+
+        <field name="arch" type="xml">
+
+            <!-- add fields -->
+            <xpath expr="//sheet/group" position="inside">
+
+                <group string="Mono Request">
+
+                    <field name="request_no"/>
+                    <field name="request_type"/>
+                    <field name="requester_id"/>
+                    <field name="responsible_id"/>
+                    <field name="priority_level"/>
+                    <field name="image" widget="image"/>
+
+                </group>
+
+            </xpath>
+
+        </field>
+
+    </record>
+
+</odoo>

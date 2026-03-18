@@ -1,0 +1,26 @@
+<odoo>
+
+    <record id="mono_request_tree" model="ir.ui.view">
+        <field name="name">mono.request.list</field>
+        <field name="model">project.task</field>
+
+        <field name="arch" type="xml">
+
+            <list string="Mono Request">
+
+                <field name="request_no"/>
+                <field name="name"/>
+                <field name="request_type"/>
+                <field name="requester_id"/>
+                <field name="responsible_id"/>
+                <field name="priority_level"/>
+                <field name="state"/>
+                <field name="create_date"/>
+
+            </list>
+
+        </field>
+
+    </record>
+
+</odoo>

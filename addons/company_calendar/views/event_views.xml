@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List -->
+    <record id="view_company_event_list" model="ir.ui.view">
+        <field name="name">company.event.list</field>
+        <field name="model">company.event</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="event_type_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- Form -->
+    <record id="view_company_event_form" model="ir.ui.view">
+        <field name="name">company.event.form</field>
+        <field name="model">company.event</field>
+        <field name="arch" type="xml">
+            <form string="Company Event">
+                <sheet>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="event_type_id"/>
+                        <field name="all_day"/>
+                    </group>
+
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+
+                    <group>
+                        <field name="description"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Calendar -->
+    <record id="view_company_event_calendar" model="ir.ui.view">
+        <field name="name">company.event.calendar</field>
+        <field name="model">company.event</field>
+        <field name="arch" type="xml">
+
+            <calendar
+                string="Company Calendar"
+                date_start="start_date"
+                date_stop="end_date"
+                color="event_type_id">
+
+                <field name="name"/>
+                <field name="event_type_id"/>
+
+            </calendar>
+
+        </field>
+    </record>
+
+
+    <!-- Action -->
+    <record id="action_company_event" model="ir.actions.act_window">
+    <field name="name">Company Calendar</field>
+    <field name="res_model">company.event</field>
+    <field name="view_mode">calendar,list,form</field>
+</record>
+
+</odoo>

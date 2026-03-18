@@ -1,0 +1,54 @@
+<odoo>
+
+    <record id="view_seat_bus_list" model="ir.ui.view">
+        <field name="name">mono.seat.bus.list</field>
+        <field name="model">mono.seat.bus</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="ts"/>
+                <field name="imei"/>
+                <field name="car_plate_number"/>
+                <field name="passenger"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_seat_bus_form" model="ir.ui.view">
+        <field name="name">mono.seat.bus.form</field>
+        <field name="model">mono.seat.bus</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sync_seat_bus"
+                            type="object"
+                            string="Sync Data"
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="ts"/>
+                        <field name="imei"/>
+                        <field name="car_plate_number"/>
+                        <field name="passenger"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_seat_bus" model="ir.actions.act_window">
+        <field name="name">Seat Bus Status</field>
+        <field name="res_model">mono.seat.bus</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <menuitem id="mono_seat_bus_menu"
+              name="Seat Bus Status"
+              parent="mono_root_menu"
+              action="action_seat_bus"
+              sequence="30"/>
+
+</odoo>

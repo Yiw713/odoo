@@ -1,7 +1,17 @@
 <odoo>
-    <menuitem id="mono_root_menu"
-              name="Mono System"
-              sequence="50"/>
+    <record id="mono_api_server_action_menu" model="ir.actions.server">
+    <field name="name">Mono System</field>
+    <field name="model_id" ref="model_mono_api_data"/>
+    <field name="state">code</field>
+    <field name="code">
+action = model.action_open_mono()
+    </field>
+</record>
+
+<menuitem id="mono_root_menu"
+          name="Mono System"
+          action="mono_api_server_action_menu"
+          sequence="50"/>
 
     <menuitem id="mono_api_menu"
               name="API Data"
@@ -13,3 +23,4 @@
               parent="mono_root_menu"
               action="mono_dashboard_action"/>
 </odoo>
+

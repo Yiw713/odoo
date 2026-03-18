@@ -1,0 +1,31 @@
+<odoo>
+
+    <record id="mono_login_form" model="ir.ui.view">
+        <field name="name">mono.login.form</field>
+        <field name="model">mono.login.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Mono Login">
+                <group>
+                    <field name="username"/>
+                    <field name="password" password="True"/>
+                </group>
+                <footer>
+                    <button name="action_login"
+                            type="object"
+                            string="Login"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="mono_login_action" model="ir.actions.act_window">
+        <field name="name">Mono Login</field>
+        <field name="res_model">mono.login.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

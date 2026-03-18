@@ -1,0 +1,19 @@
+<odoo>
+
+    <!-- Menu under Calendar -->
+
+    <menuitem
+        id="mono_calendar_root"
+        name="Mono Calendar"
+        parent="calendar.mail_menu_calendar"
+        sequence="50"
+    />
+
+    <menuitem
+        id="mono_calendar_events"
+        name="Company Calendar"
+        parent="mono_calendar_root"
+        action="mono_calendar_action"
+    />
+
+</odoo>

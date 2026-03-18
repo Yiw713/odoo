@@ -1,0 +1,33 @@
+<odoo>
+
+    <record id="mono_calendar_search_view" model="ir.ui.view">
+        <field name="name">mono.calendar.search</field>
+        <field name="model">calendar.event</field>
+        <field name="arch" type="xml">
+
+            <search>
+
+                <filter
+                    name="holiday"
+                    string="Company Holiday"
+                    domain="[('mono_event_type','=','holiday')]"
+                />
+
+                <filter
+                    name="event"
+                    string="Company Event"
+                    domain="[('mono_event_type','=','event')]"
+                />
+
+                <filter
+                    name="activity"
+                    string="Company Activity"
+                    domain="[('mono_event_type','=','activity')]"
+                />
+
+            </search>
+
+        </field>
+    </record>
+
+</odoo>

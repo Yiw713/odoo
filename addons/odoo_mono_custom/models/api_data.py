@@ -61,3 +61,19 @@ class MonoAPIData(models.Model):
             'sticky': False,
         }
     }
+
+    # Smart Button action
+    def action_open_mono(self):
+        if not self.env.user.mono_user_id:
+            return{
+                'type': 'ir.actions.act_window',
+            'res_model': 'mono.login.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            }
+        return{
+            'type': 'ir.actions.act_window',
+        'name': 'API Data',
+        'res_model': 'mono.api.data',
+        'view_mode': 'list,form',
+        }

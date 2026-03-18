@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_user,mono.request.user,model_mono_request,base.group_user,1,1,1,0
+access_manager,mono.request.manager,model_mono_request,group_mono_manager,1,1,1,1
+access_hr,mono.request.hr,model_mono_request,group_mono_hr,1,1,1,1

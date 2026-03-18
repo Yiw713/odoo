@@ -1,0 +1,40 @@
+<odoo>
+
+    <!-- Action -->
+
+    <record id="mono_calendar_action" model="ir.actions.act_window">
+        <field name="name">Company Calendar</field>
+        <field name="res_model">calendar.event</field>
+        <field name="view_mode">calendar,list,form</field>
+
+        <field name="domain">[('is_mono_event','=',True)]</field>
+
+        <field name="context">
+            {'default_is_mono_event': True}
+        </field>
+    </record>
+
+
+    <!-- Calendar View -->
+
+    <record id="mono_calendar_view_calendar" model="ir.ui.view">
+        <field name="name">mono.calendar.view.calendar</field>
+        <field name="model">calendar.event</field>
+        <field name="arch" type="xml">
+
+            <calendar
+                string="Company Calendar"
+                date_start="start"
+                date_stop="stop"
+                color="mono_event_type">
+
+                <field name="name"/>
+                <field name="mono_event_type"/>
+
+            </calendar>
+
+        </field>
+    </record>
+
+
+</odoo>

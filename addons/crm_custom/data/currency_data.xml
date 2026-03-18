@@ -1,0 +1,8 @@
+<odoo>
+
+    <record id="base.THB" model="res.currency">
+        <field name="symbol">฿</field>
+        <field name="position">before</field>
+    </record>
+
+</odoo>

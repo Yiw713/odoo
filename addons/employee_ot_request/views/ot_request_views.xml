@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_ot_request_form" model="ir.ui.view">
+        <field name="name">hr.ot.request.form</field>
+        <field name="model">hr.ot.request</field>
+        <field name="arch" type="xml">
+            <form string="OT Request">
+                <header>
+                    <button name="action_submit" string="ส่งคำขอ" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_approve" string="อนุมัติ" type="object" class="oe_highlight" invisible="state != 'submitted'" groups="hr.group_hr_manager"/>
+                    <button name="action_reject" string="ปฏิเสธ" type="object" invisible="state != 'submitted'" groups="hr.group_hr_manager"/>
+                    <button name="action_draft" string="กลับไปแก้ไข" type="object" invisible="state not in ('submitted', 'rejected')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id" readonly="state != 'draft'"/>
+                            <field name="manager_id"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="hours" readonly="state != 'draft'" widget="float_time"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="รายละเอียด/เหตุผล">
+                            <field name="reason" readonly="state != 'draft'" placeholder="ระบุงานที่ต้องทำ..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_ot_request_tree" model="ir.ui.view">
+        <field name="name">hr.ot.request.tree</field>
+        <field name="model">hr.ot.request</field>
+        <field name="arch" type="xml">
+            <tree string="OT Requests">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="date"/>
+                <field name="hours" widget="float_time"/>
+                <field name="state" widget="badge" 
+                       decoration-info="state == 'draft'" 
+                       decoration-warning="state == 'submitted'" 
+                       decoration-success="state == 'approved'" 
+                       decoration-danger="state == 'rejected'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hr_ot_request" model="ir.actions.act_window">
+        <field name="name">คำขอ OT</field>
+        <field name="res_model">hr.ot.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hr_ot_request_root" name="OT Requests" parent="hr.menu_hr_root" sequence="5"/>
+    <menuitem id="menu_hr_ot_request" name="คำขอ OT ของฉัน" parent="menu_hr_ot_request_root" action="action_hr_ot_request" sequence="1"/>
+</odoo>

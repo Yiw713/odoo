@@ -1,0 +1,11 @@
+<odoo>
+
+    <record id="mono_calendar_tag_holiday" model="calendar.event.type">
+        <field name="name">Company Holiday</field>
+    </record>
+
+    <record id="mono_calendar_tag_event" model="calendar.event.type">
+        <field name="name">Company Event</field>
+    </record>
+
+</odoo>

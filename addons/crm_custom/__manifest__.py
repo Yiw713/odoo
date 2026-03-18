@@ -7,6 +7,7 @@
     'data': [
     'security/ir.model.access.csv',
     'data/crm_stage_data.xml',
+    'data/currency_data.xml',
     'views/crm_lead_view.xml',
     'views/crm_followup_views.xml',
     'views/crm_followup_dashboard_views.xml',

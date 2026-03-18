@@ -1,0 +1,45 @@
+<odoo>
+
+<record id="mono_request_kanban" model="ir.ui.view">
+    <field name="name">mono.request.kanban</field>
+    <field name="model">project.task</field>
+    <field name="arch" type="xml">
+
+        <kanban>
+
+            <field name="name"/>
+            <field name="priority_level"/>
+            <field name="state"/>
+
+            <templates>
+
+                <t t-name="kanban-box">
+
+                    <div t-attf-class="oe_kanban_card">
+
+                        <strong>
+                            <field name="name"/>
+                        </strong>
+
+                        <div>
+                            Priority :
+                            <field name="priority_level"/>
+                        </div>
+
+                        <div>
+                            Status :
+                            <field name="state"/>
+                        </div>
+
+                    </div>
+
+                </t>
+
+            </templates>
+
+        </kanban>
+
+    </field>
+</record>
+
+</odoo>

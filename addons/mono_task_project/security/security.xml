@@ -1,0 +1,12 @@
+<odoo>
+
+    <record id="group_mono_user" model="res.groups">
+        <field name="name">Mono Task User</field>
+    </record>
+
+    <record id="group_mono_manager" model="res.groups">
+        <field name="name">Mono Task Manager</field>
+        <field name="implied_ids" eval="[(4, ref('mono_task_project.group_mono_user'))]"/>
+    </record>
+
+</odoo>

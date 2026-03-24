@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_task_mono_user,project.task.mono.user,model_project_task,mono_task_project.group_mono_user,1,1,1,0
+access_project_task_mono_manager,project.task.mono.manager,model_project_task,mono_task_project.group_mono_manager,1,1,1,1
+access_task_user,task.user,model_project_task,mono_task_project.group_mono_user,1,1,1,0

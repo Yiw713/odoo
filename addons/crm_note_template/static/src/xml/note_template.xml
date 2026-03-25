@@ -6,36 +6,40 @@
        t-inherit-mode="extension"
        owl="1">
 
-        <!-- 🔥 target textarea/contenteditable โดยตรง -->
         <xpath expr="//textarea | //div[@contenteditable='true']" position="after">
 
-            <div class="o_mono_note_tools mt-2 d-flex align-items-center flex-wrap">
+            <!-- ✅ FIX ตรงนี้ -->
+            <t t-if="props.composer and props.composer.thread and props.composer.thread.model === 'crm.lead'">
 
-                <button type="button" class="btn btn-secondary me-2 mb-1"
-                        t-on-click="onClickTemplate">
-                    Template
-                </button>
+                <div class="o_mono_note_tools mt-2 d-flex align-items-center flex-wrap">
 
-                <select class="form-select w-auto me-2 mb-1"
-                        t-on-change="onChangeSource">
-                    <option value="">Source</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Line OA">Line OA</option>
-                    <option value="Call">Call</option>
-                    <option value="Website">Website</option>
-                </select>
+                    <button type="button" class="btn btn-secondary me-2 mb-1"
+                            t-on-click="onClickTemplate">
+                        Template
+                    </button>
 
-                <select class="form-select w-auto me-2 mb-1"
-                        t-on-change="onChangeProduct">
-                    <option value="">Product</option>
-                    <option value="MDVR">MDVR</option>
-                    <option value="GPS">GPS</option>
-                    <option value="Tail Track">Tail Track</option>
-                    <option value="Rak-Dolly">Rak-Dolly</option>
-                    <option value="Forklift">Forklift</option>
-                </select>
+                    <select class="form-select w-auto me-2 mb-1"
+                            t-on-change="onChangeSource">
+                        <option value="">Source</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Line OA">Line OA</option>
+                        <option value="Call">Call</option>
+                        <option value="Website">Website</option>
+                    </select>
 
-            </div>
+                    <select class="form-select w-auto me-2 mb-1"
+                            t-on-change="onChangeProduct">
+                        <option value="">Product</option>
+                        <option value="MDVR">MDVR</option>
+                        <option value="GPS">GPS</option>
+                        <option value="Tail Track">Tail Track</option>
+                        <option value="Rak-Dolly">Rak-Dolly</option>
+                        <option value="Forklift">Forklift</option>
+                    </select>
+
+                </div>
+
+            </t>
 
         </xpath>
 

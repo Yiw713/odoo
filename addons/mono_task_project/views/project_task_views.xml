@@ -1,11 +1,9 @@
 <odoo>
-
     <record id="view_task_form_mono" model="ir.ui.view">
         <field name="name">project.task.form.mono</field>
         <field name="model">project.task</field>
-        <field name="inherit_id" ref="project.view_task_form2" group/>
+        <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
-
             <xpath expr="//sheet/group" position="inside">
                 <group string="Mono Workflow">
                     <field name="mono_state"/>
@@ -17,64 +15,49 @@
                     <field name="deadline_extend_count"/>
                 </group>
             </xpath>
-
             <xpath expr="//header" position="inside">
-
                 <button name="action_submit" type="object"
         string="Submit"
         confirm="Are you sure you want to submit this task?"
         invisible="mono_state != 'draft'"/>
-
-<button name="action_approve" type="object"
+                <button name="action_approve" type="object"
         string="Approve"
         confirm="Confirm approval?"
         invisible="mono_state != 'pending_approval'"/>
-
-<button name="action_start" type="object"
+                <button name="action_start" type="object"
         string="Start"
         confirm="Start this task?"
         invisible="mono_state != 'assigned'"/>
-
-<button name="action_submit_review" type="object"
+                <button name="action_submit_review" type="object"
         string="Submit Review"
         confirm="Send task to QA?"
         invisible="mono_state != 'in_progress'"/>
-
-<button name="action_qa_pass" type="object"
+                <button name="action_qa_pass" type="object"
         string="QA Pass"
         confirm="QA passed?"
         invisible="mono_state != 'qa_review'"/>
-
-<button name="action_qa_fail" type="object"
+                <button name="action_qa_fail" type="object"
         string="QA Fail"
         confirm="Send back for revision?"
         invisible="mono_state != 'qa_review'"/>
-
-<button name="action_accept" type="object"
+                <button name="action_accept" type="object"
         string="Accept"
         confirm="Accept this task as completed?"
         invisible="mono_state != 'pending_acceptance'"/>
-
             </xpath>
-
         </field>
     </record>
-
-
     <!-- KANBAN EXTENSION -->
     <record id="view_task_kanban_mono" model="ir.ui.view">
-    <field name="name">project.task.kanban.mono</field>
-    <field name="model">project.task</field>
-    <field name="inherit_id" ref="project.view_task_kanban"/>
-    <field name="arch" type="xml">
-
-        <!-- ใส่ใน root template -->
-        <xpath expr="//kanban" position="inside">
-            <field name="mono_state"/>
-            <field name="progress"/>
-        </xpath>
-
-    </field>
-</record>
-
+        <field name="name">project.task.kanban.mono</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            <!-- ใส่ใน root template -->
+            <xpath expr="//kanban" position="inside">
+                <field name="mono_state"/>
+                <field name="progress"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

@@ -1,0 +1,10 @@
+<odoo>
+    <record id="project_mono_internal" model="project.project">
+        <field name="name">Mono</field>
+        <field name="mono_type">internal</field>
+    </record>
+    <record id="project_mono_outsource" model="project.project">
+        <field name="name">Mono_Outsource</field>
+        <field name="mono_type">outsource</field>
+    </record>
+</odoo>

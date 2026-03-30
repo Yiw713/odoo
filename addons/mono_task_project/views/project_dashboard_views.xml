@@ -1,32 +1,12 @@
 <odoo>
-
-    <!-- Pivot -->
     <record id="view_task_pivot_mono" model="ir.ui.view">
-        <field name="name">project.task.pivot.mono</field>
+        <field name="name">task.pivot</field>
         <field name="model">project.task</field>
         <field name="arch" type="xml">
-            <pivot string="Mono Task Analysis">
-
-                <field name="user_ids" type="row"/>
+            <pivot>
                 <field name="mono_state" type="col"/>
-
-                <field name="revision_count" type="measure"/>
-                <field name="delay_days" type="measure"/>
-
+                <field name="id" type="measure"/>
             </pivot>
         </field>
     </record>
-
-    <!-- Graph -->
-    <record id="view_task_graph_mono" model="ir.ui.view">
-        <field name="name">project.task.graph.mono</field>
-        <field name="model">project.task</field>
-        <field name="arch" type="xml">
-            <graph string="Task Overview" type="bar">
-                <field name="mono_state"/>
-                <field name="id" type="measure"/>
-            </graph>
-        </field>
-    </record>
-
 </odoo>

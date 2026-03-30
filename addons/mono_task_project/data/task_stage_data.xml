@@ -1,48 +1,98 @@
 <odoo>
-
-    <record id="stage_draft" model="project.task.type">
+    <!-- ========================= -->
+    <!-- INTERNAL (Mono) -->
+    <!-- ========================= -->
+    <record id="stage_draft_internal" model="project.task.type">
         <field name="name">Draft</field>
+        <field name="stage_code">draft</field>
+        <field name="mono_type">internal</field>
         <field name="sequence">1</field>
     </record>
-
-    <record id="stage_pending_approval" model="project.task.type">
+    <record id="stage_pending_approval_internal" model="project.task.type">
         <field name="name">Pending Approval</field>
+        <field name="stage_code">pending_approval</field>
+        <field name="mono_type">internal</field>
         <field name="sequence">2</field>
     </record>
-
-    <record id="stage_reviewing" model="project.task.type">
-        <field name="name">Reviewing</field>
+    <record id="stage_assigned_internal" model="project.task.type">
+        <field name="name">Assigned</field>
+        <field name="stage_code">assigned</field>
+        <field name="mono_type">internal</field>
         <field name="sequence">3</field>
     </record>
-
-    <record id="stage_assigned" model="project.task.type">
-        <field name="name">Assigned</field>
+    <record id="stage_in_progress_internal" model="project.task.type">
+        <field name="name">In Progress</field>
+        <field name="stage_code">in_progress</field>
+        <field name="mono_type">internal</field>
         <field name="sequence">4</field>
     </record>
-
-    <record id="stage_in_progress" model="project.task.type">
-        <field name="name">In Progress</field>
+    <record id="stage_qa_review_internal" model="project.task.type">
+        <field name="name">QA Review</field>
+        <field name="stage_code">qa_review</field>
+        <field name="mono_type">internal</field>
         <field name="sequence">5</field>
     </record>
-
-    <record id="stage_pending_review" model="project.task.type">
-        <field name="name">Pending Review</field>
+    <record id="stage_pending_acceptance_internal" model="project.task.type">
+        <field name="name">Pending Acceptance</field>
+        <field name="stage_code">pending_acceptance</field>
+        <field name="mono_type">internal</field>
         <field name="sequence">6</field>
     </record>
-
-    <record id="stage_qa_review" model="project.task.type">
-        <field name="name">QA Review</field>
+    <record id="stage_done_internal" model="project.task.type">
+        <field name="name">Done</field>
+        <field name="stage_code">done</field>
+        <field name="mono_type">internal</field>
         <field name="sequence">7</field>
     </record>
-
-    <record id="stage_pending_acceptance" model="project.task.type">
+    <!-- ========================= -->
+    <!-- OUTSOURCE (Mono_Outsource) -->
+    <!-- ========================= -->
+    <record id="stage_draft_outsource" model="project.task.type">
+        <field name="name">Draft</field>
+        <field name="stage_code">draft</field>
+        <field name="mono_type">outsource</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="stage_pending_approval_outsource" model="project.task.type">
+        <field name="name">Pending Approval</field>
+        <field name="stage_code">pending_approval</field>
+        <field name="mono_type">outsource</field>
+        <field name="sequence">2</field>
+    </record>
+    <record id="stage_reviewing_outsource" model="project.task.type">
+        <field name="name">Reviewing</field>
+        <field name="stage_code">reviewing</field>
+        <field name="mono_type">outsource</field>
+        <field name="sequence">3</field>
+    </record>
+    <record id="stage_in_progress_outsource" model="project.task.type">
+        <field name="name">In Progress</field>
+        <field name="stage_code">in_progress</field>
+        <field name="mono_type">outsource</field>
+        <field name="sequence">4</field>
+    </record>
+    <record id="stage_pending_review_outsource" model="project.task.type">
+        <field name="name">Pending Review</field>
+        <field name="stage_code">pending_review</field>
+        <field name="mono_type">outsource</field>
+        <field name="sequence">5</field>
+    </record>
+    <record id="stage_qa_review_outsource" model="project.task.type">
+        <field name="name">QA Review</field>
+        <field name="stage_code">qa_review</field>
+        <field name="mono_type">outsource</field>
+        <field name="sequence">6</field>
+    </record>
+    <record id="stage_pending_acceptance_outsource" model="project.task.type">
         <field name="name">Pending Acceptance</field>
+        <field name="stage_code">pending_acceptance</field>
+        <field name="mono_type">outsource</field>
+        <field name="sequence">7</field>
+    </record>
+    <record id="stage_done_outsource" model="project.task.type">
+        <field name="name">Done</field>
+        <field name="stage_code">done</field>
+        <field name="mono_type">outsource</field>
         <field name="sequence">8</field>
     </record>
-
-    <record id="stage_done" model="project.task.type">
-        <field name="name">Done</field>
-        <field name="sequence">9</field>
-    </record>
-
 </odoo>

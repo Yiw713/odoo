@@ -1,0 +1,71 @@
+<t t-name="crm_dashboard_template">
+<div class="o_dashboard">
+
+    <!-- FILTER -->
+    <div class="mb-3">
+        <input type="date" t-model="state.date_from"/>
+        <input type="date" t-model="state.date_to"/>
+        <button t-on-click="loadData">Apply</button>
+    </div>
+
+    <!-- KPI -->
+    <div class="row">
+        <div class="col-4">
+            <div class="kpi-card kpi-lead">
+                Leads
+                <h2><t t-esc="state.kpi.total"/></h2>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="kpi-card kpi-won">
+                Won
+                <h2><t t-esc="state.kpi.won"/></h2>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="kpi-card kpi-conv">
+                Conversion
+                <h2><t t-esc="state.kpi.conversion"/>%</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHART -->
+    <div class="card">
+        <canvas id="lineChart"/>
+    </div>
+
+    <!-- FUNNEL -->
+    <div class="card">
+        <t t-foreach="state.funnel" t-as="f" t-key="f.id">
+            <div class="mb-2">
+                <span><t t-esc="f.name"/></span>
+                <div style="background:#eee;height:10px;">
+                    <div t-att-style="'width:' + f.count + '%; background:#3b82f6; height:10px;'"/>
+                </div>
+            </div>
+        </t>
+    </div>
+
+    <!-- ACTIVITY -->
+    <div class="card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Activity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="state.activity" t-as="a" t-key="a.id">
+                    <tr>
+                        <td><t t-esc="a.name"/></td>
+                        <td><t t-esc="a.count"/></td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</t>

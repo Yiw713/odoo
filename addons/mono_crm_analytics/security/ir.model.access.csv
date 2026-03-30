@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_report,crm.report,model_mono_crm_report_sql,,1,0,0,0
+access_crm_activity,crm.activity,model_mono_crm_activity_sql,,1,0,0,0

@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_unfollowed_list" model="ir.ui.view">
+        <field name="name">unfollowed.list</field>
+        <field name="model">crm.lead</field>
+        <field name="arch" type="xml">
+            <list string="Unfollowed Leads">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="stage_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_unfollowed" model="ir.actions.act_window">
+        <field name="name">Unfollowed Leads</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">list</field>
+        <field name="domain">
+            [('activity_ids','=',False),('type','=','opportunity')]
+        </field>
+    </record>
+
+    <menuitem id="menu_unfollowed"
+              name="Unfollowed Leads"
+              parent="crm.crm_menu_root"
+              action="action_unfollowed"/>
+</odoo>

@@ -1,0 +1,43 @@
+<odoo>
+
+    <!-- GRAPH -->
+    <record id="view_crm_graph" model="ir.ui.view">
+        <field name="name">crm.analytics.graph</field>
+        <field name="model">mono.crm.report.sql</field>
+        <field name="arch" type="xml">
+            <graph string="CRM Analytics" type="bar">
+                <field name="create_date" type="row"/>
+                <field name="total_leads" type="measure"/>
+                <field name="total_won" type="measure"/>
+                <field name="expected_revenue" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- PIVOT -->
+    <record id="view_crm_pivot" model="ir.ui.view">
+        <field name="name">crm.analytics.pivot</field>
+        <field name="model">mono.crm.report.sql</field>
+        <field name="arch" type="xml">
+            <pivot string="CRM Pivot">
+                <field name="user_id" type="row"/>
+                <field name="team_id" type="col"/>
+                <field name="total_won" type="measure"/>
+                <field name="expected_revenue" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_crm_analytics" model="ir.actions.act_window">
+        <field name="name">CRM Analytics</field>
+        <field name="res_model">mono.crm.report.sql</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <menuitem id="menu_crm_analytics"
+              name="CRM Analytics"
+              parent="crm.crm_menu_root"
+              action="action_crm_analytics"/>
+
+</odoo>

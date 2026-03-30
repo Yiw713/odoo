@@ -1,0 +1,22 @@
+.o_dashboard {
+    padding: 20px;
+}
+
+.kpi-card {
+    border-radius: 12px;
+    padding: 20px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.kpi-lead { background: #3b82f6; }
+.kpi-won { background: #10b981; }
+.kpi-conv { background: #f59e0b; }
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
